@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<!-- Document class   --> 
+<class name="com.xchanging.model.TransactionDetails" table="REPOSITORY.TBLTRANSACTIONDETAILS" lazy="true">
+  <!-- composite key which consist of two keys  -->
+  <composite-id>
+    <key-property name="umr" column="UMR" type="java.lang.String" length="18" />
+    <key-property name="ucr" column="UCR" type="java.lang.String"  length="18"/>
+	<key-property name="tr"   column="TR" type="java.lang.String" length="18"/>
+	<key-property name="bureauID" column="BUREAU_ID" type="java.lang.String" length="2" />
+  </composite-id>
+  
+<!--  <id column="ROWID" type="string" />
+   
+ <property name="umr">
+   <column name="UMR" sql-type="char(18)" not-null="false"/>
+ </property> 
+ <property name="ucr">
+   <column name="UCR" sql-type="char(18)" not-null="false"/>
+ </property> 
+ <property name="tr">
+   <column name="TR" sql-type="char(18)" not-null="false"/>
+ </property> 
+ <property name="bureauID">
+   <column name="BUREAU_ID" sql-type="char(2)" not-null="false"/>
+ </property>  -->
+	
+	
+ <property name="bureaLeader">
+   <column name="BUREAU_LEADER" sql-type="char(9)" not-null="false"/>
+ </property>
+ 
+ <property name="lossName">
+   <column name="LOSS_NAME" sql-type="char(20)" not-null="false"/>
+ </property>
+
+ <property name="lossDateFrom">
+   <column name="LOSS_DATE_FROM" sql-type="char(10)" not-null="false"/>
+ </property>
+ 
+ 
+ 
+ <property name="uwrYear">
+   <column name="UWR_YEAR" sql-type="number" not-null="false"/>
+ </property>
+ 
+ <property name="brokerContact">
+   <column name="BROKER_CONTACT" sql-type="char(15)" not-null="false"/>
+ </property>
+ 
+ <property name="brokerName">
+   <column name="BKR_NAME" sql-type="char(20)" not-null="false"/>
+ </property>
+ 
+ <property name="assured">
+   <column name="ASSURED" sql-type="char(50)" not-null="false"/>
+ </property>
+ 
+ <property name="reassured">
+   <column name="REASSURED" sql-type="char(50)" not-null="false"/>
+ </property>
+ 
+ <property name="inceptionDate">
+   <column name="INCEPTION_DATE" sql-type="number" not-null="false"/>
+ </property>
+ 
+ <property name="expiryDate">
+   <column name="EXPIRY_DATE" sql-type="number" not-null="false"/>
+ </property>
+ 
+ <property name="requestId">
+   <column name="REQUEST_ID" sql-type="number" not-null="false"/>
+ </property>
+ 
+ <property name="createDate">
+   <column name="CREATE_DATE" sql-type="char(10)" not-null="false"/>
+ </property>
+ 
+ <property name="actionCode">
+   <column name="ACTION_CODE" sql-type="varchar2(5)" not-null="false"/>
+ </property>
+ 
+ <property name="statusCode">
+   <column name="STATUS_CODE" sql-type="varchar2(5)" not-null="false"/>
+ </property>
+ 
+ <property name="moniker">
+   <column name="MONIKER" sql-type="varchar2(2048)" not-null="false"/>
+ </property>
+ 
+ <property name="brokerClaimRef1">
+   <column name="BKR_CLAIM_REF_1" sql-type="varchar2(15)" not-null="false"/>
+ </property>
+ 
+ <property name="trLabelRsid">
+   <column name="TR_LABEL_RSID" sql-type="number" not-null="false"/>
+ </property>
+ 
+ <property name="trStatus">
+   <column name="TR_STATUS" sql-type="char(3)" not-null="false"/>
+ </property>
+ 
+ <property name="datAdded">
+   <column name="DATE_ADDED" sql-type="varchar2(30)" not-null="false"/>
+ </property>
+ 
+  <property name="lastUpdate">
+   <column name="LAST_UPDATE" sql-type="date" not-null="false"/>
+ </property>
+ 
+  <property name="brokerCode">
+   <column name="BRK_CODE" sql-type="char(4)" not-null="false"/>
+  </property>
+  
+  <property name="lossDateTo">
+   <column name="LOSS_DATE_TO" sql-type="char(10)" not-null="false"/>
+  </property>
+  
+  <property name="marketLeadName">
+   <column name="MARKET_LEAD_NAME" sql-type="char(20)" not-null="false"/>
+  </property>
+  
+  <property name="marketCode">
+   <column name="MARKET_CODE" sql-type="char(1)" not-null="false"/>
+  </property> 
+  
+    <property name="createdDateIM">
+   <column name="CREATED_DATE_IM" sql-type="date" not-null="false"/>
+  </property> 
+  
+    <property name="trStatusCode">
+   <column name="TR_STATUS_CODE" sql-type="char(10)" not-null="false"/>
+  </property> 
+  
+    <property name="transType">
+   <column name="TRANS_TYPE" sql-type="varchar2(3)" not-null="false"/>
+  </property> 
+  
+    <property name="claimType">
+   <column name="CLAIM_TYPE" sql-type="varchar2(3)" not-null="false"/>
+  </property> 
+  
+    <property name="transTypeSubCode">
+   <column name="TRANS_TYPE_SUBCODE" sql-type="varchar2(3)" not-null="false"/>
+  </property> 
+	
+</class>
+
+
+</hibernate-mapping>

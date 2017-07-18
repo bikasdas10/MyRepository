@@ -1,0 +1,307 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.xchanging.jpa</groupId>
+
+	<artifactId>jpa-example</artifactId>
+
+	<version>0.0.1-SNAPSHOT</version>
+
+	<packaging>jar</packaging>
+
+
+	<properties>
+
+		<java.version>1.8</java.version>
+
+		<hibernate.version>4.3.6.Final</hibernate.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<pom.version>${pomVersion}</pom.version>
+
+		<!-- external dependencies -->
+		<camel.version>2.12.0.redhat-610379</camel.version>
+		<maven.bundle.plugin>2.5.3</maven.bundle.plugin>
+		<mockito.version>1.9.5</mockito.version>
+		<junit.version>4.11</junit.version>
+		<org.slf4j.version>1.7.6</org.slf4j.version>
+		<commons.collections.version>3.2.2</commons.collections.version>
+		<commons-lang.version>2.6</commons-lang.version>
+		<activemq.version>5.9.0.redhat-610379</activemq.version>
+		<commons.codec.version>1.7</commons.codec.version>
+		<jboss.fuse.bom.version>6.1.1.redhat-454</jboss.fuse.bom.version>
+		<org.osgi.core>4.3.0</org.osgi.core>
+		<log4j.version>1.2.17</log4j.version>
+		<javax.persistence.version>1.0.2</javax.persistence.version>
+		<com.ibm.db2.version>4.17.29</com.ibm.db2.version>
+		<jug.version>2.0rc6</jug.version>
+
+
+
+		<!-- feature.xml dependencies only -->
+		<hibernate.version>4.2.9.Final</hibernate.version>
+		<ojdbc.version>11.2.0.3</ojdbc.version>
+		<commons-pool.version>1.6</commons-pool.version>
+		<hibernate.common.version>4.0.2.Final</hibernate.common.version>
+		<apache.servicemix.bundles.antlr.version>2.7.7_5</apache.servicemix.bundles.antlr.version>
+		<apache.servicemix.bundles.ant.version>1.8.2_2</apache.servicemix.bundles.ant.version>
+		<apache.servicemix.bundles.dom4j.version>1.6.1_5</apache.servicemix.bundles.dom4j.version>
+		<apache.servicemix.bundles.jaxen.version>1.1.4_1</apache.servicemix.bundles.jaxen.version>
+		<apache.servicemix.bundles.serp.version>1.14.1_1</apache.servicemix.bundles.serp.version>
+		<com.fasterxml.version>0.9.0</com.fasterxml.version>
+		<org.javassist.version>3.18.1-GA</org.javassist.version>
+		<jboss.spec.javax.security.jacc.version>1.0.2.Final</jboss.spec.javax.security.jacc.version>
+		<org.jboss.version>1.1.0.Final</org.jboss.version>
+		<org.jboss.logging.version>3.1.0.GA</org.jboss.logging.version>
+		<common.api.version>${commonVersion}</common.api.version>
+		<jug.asl.version>2.0rc6</jug.asl.version>
+		<ibm.db2.version>4.17.29</ibm.db2.version>
+		<jackson.jaxrs.version>1.9.12</jackson.jaxrs.version>
+		<http.core.version>4.4.4</http.core.version>
+		<http.client.version>4.5.2</http.client.version>
+		<maven-jar-plugin>2.4</maven-jar-plugin>
+		<maven-compiler-plugin>2.5.1</maven-compiler-plugin>
+		<xsb.pa.bundle.version>1.0.0</xsb.pa.bundle.version>
+		<!-- pom.xml and feature.xml dependencies only -->
+		<spring.framework.version>3.2.8.RELEASE</spring.framework.version>
+
+		<!-- Not using in parent pom.xml and feature.xml -->
+		<http.mime.version>4.5.2</http.mime.version>
+		<commons-dbcp.version>1.4</commons-dbcp.version>
+
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+  				<groupId>commons-collections</groupId>
+   				<artifactId>commons-collections</artifactId>
+   				<version>${commons.collections.version}</version>
+   			</dependency>
+		<!-- JPA -->
+
+		<dependency>
+
+			<groupId>org.hibernate</groupId>
+
+			<artifactId>hibernate-entitymanager</artifactId>
+
+			<version>${hibernate.version}</version>
+
+		</dependency>
+
+		<!-- For connection pooling -->
+
+		<dependency>
+
+			<groupId>org.hibernate</groupId>
+
+			<artifactId>hibernate-c3p0</artifactId>
+
+			<version>${hibernate.version}</version>
+
+		</dependency>
+
+		<!-- Database -->
+
+		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			<version>5.1.31</version> </dependency> -->
+
+		<!-- Oracle JDBC driver -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0</version>
+		</dependency>
+
+		<!-- Test -->
+
+		<dependency>
+
+			<groupId>junit</groupId>
+
+			<artifactId>junit</artifactId>
+
+			<version>4.11</version>
+
+			<scope>test</scope>
+
+			<exclusions>
+
+				<exclusion>
+
+					<groupId>org.hamcrest</groupId>
+
+					<artifactId>hamcrest-core</artifactId>
+
+				</exclusion>
+
+			</exclusions>
+
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.hamcrest</groupId>
+
+			<artifactId>hamcrest-all</artifactId>
+
+			<version>1.3</version>
+
+			<scope>test</scope>
+
+		</dependency>
+
+		<!-- <dependency> <groupId>com.xchanging.commonapi</groupId> <artifactId>common_acord_api</artifactId> 
+			<version>1.0.0-SNAPSHOT</version> </dependency> -->
+		<dependency>
+			<groupId>com.xchanging.xsb.premiumactprofile</groupId>
+			<artifactId>premiumact_workorder_api</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jug</groupId>
+			<artifactId>jug-asl</artifactId>
+			<version>2.0rc6</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.2.8.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.2.8.RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.9.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.9.Final</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.2.9.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-module-jaxb-annotations -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.module</groupId>
+			<artifactId>jackson-module-jaxb-annotations</artifactId>
+			<version>2.8.8</version>
+		</dependency>
+
+<!-- 		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.6.4</version>
+		</dependency> -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.moxy -->
+	 <dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.moxy</artifactId>
+			<version>2.6.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+
+				<groupId>org.apache.maven.plugins</groupId>
+
+				<artifactId>maven-compiler-plugin</artifactId>
+
+				<version>2.5.1</version>
+
+				<configuration>
+
+					<source>${java.version}</source>
+
+					<target>${java.version}</target>
+
+					<compilerArgument>-Xlint:all</compilerArgument>
+
+					<showWarnings>true</showWarnings>
+
+					<showDeprecation>true</showDeprecation>
+
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>

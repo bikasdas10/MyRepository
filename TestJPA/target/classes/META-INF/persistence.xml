@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+ 	<persistence-unit name="datapump-oracle-persistence-unit"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+<!-- 		<mapping-file>hbm/TransactionDetails.hbm.xml</mapping-file>
+		<class>com.xchanging.xsb.premiumact.repo.dao.model.Signing</class> 
+			<class>com.xchanging.xsb.premiumact.repo.dao.model.SigningCompositeKey</class> 
+			<class>com.xchanging.xsb.premiumact.repo.dao.model.EAccountDocumentDTO</class> 
+			<class>com.xchanging.xsb.premiumact.repo.dao.model.EAccountSubmissionDTO</class> 
+			<class>com.xchanging.xsb.premiumact.repo.dao.model.EAccountWorkOrderGroupDTO</class> 
+			<class>com.xchanging.xsb.premiumact.repo.dao.model.EAccountWorkOrderDTO</class>
+	<class>com.xchanging.xsb.premiumact.repo.dao.model.EAccountTransactionDetailsDTO</class> -->
+	<class>com.xchanging.model.WorkOrderGroup</class>
+	<class>com.xchanging.model.TblEvent</class>
+	<class>com.xchanging.model.TblEventActionType</class>
+	<class>com.xchanging.model.TblEventType</class>
+	<class>com.xchanging.model.TblSourceSystem</class>
+	<class>com.xchanging.model.TblTPAEvent</class>
+	<class>com.xchanging.model.TblUcrTPAEvent</class>
+	<class>com.xchanging.model.TblUmrTPAEvent</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@actimrdevdatz01:1521:imrdev" />
+
+			<!-- <property name="javax.persistence.jdbc.user" value="AU_XSBIMR" /> -->
+			<property name="javax.persistence.jdbc.user" value="AU_XSBPA" />
+
+			<!-- <property name="javax.persistence.jdbc.password" value="j4p4n" /> -->
+			<property name="javax.persistence.jdbc.password" value="l0nd0n" />
+
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.current_session_context_class"
+				value="org.hibernate.context.internal.ThreadLocalSessionContext" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="false" />
+			<property name="hibernate.cache.use_query_cache" value="false" />
+
+		</properties>
+	</persistence-unit>
+<!-- 		<persistence-unit name="local-XE"
+		transaction-type="RESOURCE_LOCAL">
+			<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>com.xchanging.model.Login</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+
+			<property name="javax.persistence.jdbc.user" value="AU_XSBIMR" />
+			<property name="javax.persistence.jdbc.user" value="bikasdas10" />
+
+			<property name="javax.persistence.jdbc.password" value="j4p4n" />
+			<property name="javax.persistence.jdbc.password" value="bikasdas10" />
+
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.current_session_context_class"
+				value="org.hibernate.context.internal.ThreadLocalSessionContext" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="false" />
+			<property name="hibernate.cache.use_query_cache" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+
+		</properties>
+	</persistence-unit> -->
+</persistence>
+        
